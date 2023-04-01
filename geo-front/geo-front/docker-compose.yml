@@ -1,0 +1,16 @@
+version: '3.7'
+
+
+services:
+  web:
+    container_name: web-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: linux/amd64
+    ports:
+      - "80:80"
+    environment:
+      XDEBUG_CONFIG: remote_host=${HOST_IP:-host.docker.internal}
+    volumes:
+      - ./:/geo-front
