@@ -1,0 +1,14 @@
+# Name the node stage "builder"
+FROM node:14.17.0
+# Set working directory
+WORKDIR /app
+
+COPY package.json \
+    package-lock.json \
+    ./
+
+# Copy all files from current directory to working dir in image
+COPY . .
+# install node modules and build assets
+RUN npm install && npm run build
+CMD [ "npm", "run", "dev"]
