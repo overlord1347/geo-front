@@ -23,8 +23,10 @@ services:
       - VIRTUAL_HOST=geo.front.localhost
     volumes:
       - ./:/geo-front
+      - ./docker/entrypoint.sh:/app/entrypoint.sh
     depends_on:
       - frontend-docker-app
+   # entrypoint: ["/app/entrypoint.sh"]
 
 
 networks:

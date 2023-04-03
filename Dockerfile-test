@@ -10,5 +10,11 @@ COPY package.json \
 # Copy all files from current directory to working dir in image
 COPY . .
 # install node modules and build assets
-RUN npm install && npm run build
+RUN npm install  \
+    && npm run build  \
+    && apt-get update  \
+    && apt-get install -y wget \
+    && wget https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh \
+    && chmod +x wait-for-it.sh \
+    && mv wait-for-it.sh /usr/local/bin/
 CMD [ "npm", "run", "dev"]
