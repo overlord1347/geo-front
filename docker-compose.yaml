@@ -23,6 +23,7 @@ services:
       - VIRTUAL_HOST=geo.front.localhost
     volumes:
       - ./:/geo-front
+      - ./dist:/usr/share/nginx/html
     depends_on:
       - frontend-docker-app
 

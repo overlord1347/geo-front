@@ -1,28 +1,16 @@
-<script>
-import axios from 'axios';
+<template>
+  <div>
+    <p>{{ msg }}</p>
+  </div>
+</template>
 
+<script>
 export default {
   name: 'Ping',
   data() {
     return {
-      msg: '',
+      msg: 'Hello23',
     };
-  },
-  methods: {
-    getMessage() {
-      const path = 'http://localhost:5000/ping';
-      axios.get(path)
-          .then((res) => {
-            this.msg = res.data;
-          })
-          .catch((error) => {
-            // eslint-выключение следующей строки
-            console.error(error);
-          });
-    },
-  },
-  created() {
-    this.getMessage();
   },
 };
 </script>
