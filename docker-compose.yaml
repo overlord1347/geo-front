@@ -7,10 +7,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    platform: linux/amd64
-    ports:
-      - "80:80"
     environment:
-      XDEBUG_CONFIG: remote_host=${HOST_IP:-host.docker.internal}
+      - VIRTUAL_HOST=geo.front.localhost
     volumes:
       - ./:/geo-front
+
+networks:
+  default:
+    external:
+      name: nginx-proxy

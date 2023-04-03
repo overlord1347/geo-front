@@ -1,6 +1,6 @@
 # geo-front
 
-> geo-front project
+> A Vue.js project
 
 ## Build Setup
 
